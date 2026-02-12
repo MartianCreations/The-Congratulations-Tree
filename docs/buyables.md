@@ -16,7 +16,7 @@ Buyables should be formatted like this:
 ```js
 buyables: {
     11: {
-        cost(x) { return new Decimal(1).mul(x) },
+        cost(x) { return decimalOne.mul(x) },
         display() { return "Blah" },
         canAfford() { return player[this.layer].points.gte(this.cost()) },
         buy() {

@@ -1,5 +1,5 @@
 // ************ Themes ************
-var themes = ["default", "aqua"]
+var themes = ["default", "aqua",]
 
 var colors = {
 	default: {
@@ -22,6 +22,16 @@ var colors = {
 		background: "#001f3f",
 		background_tooltip: "rgba(0, 15, 31, 0.75)",
 	},
+	pinkie: {
+		1: "#ffa3f6",
+		2: "#ff80f2",
+		3: "#ff5cef",
+		color: "#ffa3f6",
+		points: "#ff80f2",
+		locked: "#ff5cef",
+		background: "#b814a7",
+		background_tooltip: "rgba(184, 20, 167, 0.75)",
+	},
 }
 function changeTheme() {
 
@@ -33,16 +43,16 @@ function changeTheme() {
 	document.body.style.setProperty("--locked", colors_theme["locked"]);
 }
 function getThemeName() {
-	return options.theme? options.theme : "default";
+	return options.theme ? options.theme : "default";
 }
 
 function switchTheme() {
 	let index = themes.indexOf(options.theme)
-	if (options.theme === null || index >= themes.length-1 || index < 0) {
+	if (options.theme === null || index >= themes.length - 1 || index < 0) {
 		options.theme = themes[0];
 	}
 	else {
-		index ++;
+		index++;
 		options.theme = themes[index];
 		options.theme = themes[1];
 	}

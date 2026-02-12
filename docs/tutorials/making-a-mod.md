@@ -47,7 +47,7 @@ Reload the page, and an upgrade will appear in the layer's tab! It will just be 
 ```js
     title: "Make this whatever you want!",
     description: "Double your point gain.",
-    cost: new Decimal(1),
+    cost: decimalOne,
 ```
 
 Reload the page, and the upgrade will appear, fully formed! But it won't have any effect when you buy it! To impliment a boost, we need to go to the place where it is calculated. In this case, point gain is calculated in getPointGen in mod.js, so let's head over there.
@@ -95,7 +95,7 @@ To implement this effect, we modify gainMult, which returns the multiplier to th
 
 ```js
     gainMult() {
-        let mult = new Decimal(1)
+        let mult = decimalOne
         if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
         return mult
     },

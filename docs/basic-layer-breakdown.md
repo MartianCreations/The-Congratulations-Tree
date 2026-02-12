@@ -23,10 +23,10 @@ addLayer("p", {
     exponent: 0.5,                          // "normal" prestige gain is (currency^exponent).
 
     gainMult() {                            // Returns your multiplier to your gain of the prestige resource.
-        return new Decimal(1)               // Factor in any bonuses multiplying gain here.
+        return decimalOne               // Factor in any bonuses multiplying gain here.
     },
     gainExp() {                             // Returns the exponent to your gain of the prestige resource.
-        return new Decimal(1)
+        return decimalOne
     },
 
     layerShown() { return true },          // Returns a bool for if this layer's node should be visible in the tree.
