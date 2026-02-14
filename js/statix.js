@@ -25,9 +25,6 @@ addLayer("main", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = decimalOne
-        if (hasUpgrade("main", 13)) {
-            mult = mult.times(upgradeEffect("main", 13))
-        }
 
         if (hasUpgrade("main", 14)) {
             mult = mult.times(5)
@@ -80,7 +77,7 @@ addLayer("main", {
         },
         13: {
             title: "Statixlings",
-            description: "Runes scale off of Congratulations Buttons",
+            description: "Congratulations Buttons scale off of Runes",
             cost: new Decimal(30),
             style: {
                 "height": "150px",
@@ -88,7 +85,7 @@ addLayer("main", {
                 "corner-shape": "squircle"
             },
             effect() {
-                return player.points.pow(0.13)
+                return player[this.layer].points.pow(0.25).add(1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
         },

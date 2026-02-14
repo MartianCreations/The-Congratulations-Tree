@@ -2,7 +2,7 @@ let modInfo = {
 	name: "The Congratulations Tree",
 	author: "Moon Charm Muahaha",
 	pointsName: "Congratulations Buttons",
-	modFiles: ["statix.js", "moon.js", "liz.js", "tree.js"],
+	modFiles: ["statix.js", "moon.js", "liz.js", "cud.js", "tree.js", "achievements.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -42,6 +42,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = decimalOne
+
 	if (hasUpgrade("main", 11)) {
 		gain = gain.times(1.50)
 	}
@@ -50,6 +51,9 @@ function getPointGen() {
 	}
 	if (hasUpgrade("liz", 11)) {
 		gain = gain.times(7)
+	}
+	if (hasUpgrade("main", 13)) {
+		gain = gain.times(upgradeEffect("main", 13))
 	}
 	if (hasUpgrade("main", 15)) {
 		gain = gain.times(upgradeEffect("main", 15))
