@@ -34,8 +34,8 @@
 }
 
 .smallNode {
-	height: 60px;
-	width: 60px;
+	height: 50px;
+	width: 50px;
 	font-size: 30px;
 }
 
@@ -69,7 +69,7 @@
 	border-bottom: 0.7em solid transparent;
 	border-left: 0.3em solid transparent;
 	font-size: 10px;
-	overflow:auto;
+	overflow: auto;
 	pointer-events: none;
 }
 
@@ -90,16 +90,17 @@
 
 }
 
-.star:before, .star:after {
+.star:before,
+.star:after {
 	content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: .6em;
-    left: -1em;
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: .6em;
+	left: -1em;
 	border-right: 1em solid transparent;
-    border-bottom: 0.7em solid #ffcc00;
-    border-left: 1em solid transparent;
+	border-bottom: 0.7em solid #ffcc00;
+	border-left: 1em solid transparent;
 	transform: rotate(-35deg);
 }
 

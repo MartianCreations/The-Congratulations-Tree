@@ -28,6 +28,9 @@ addLayer("liz", {
         if (hasUpgrade("liz", 11)) {
             mult = mult.times(0.7)
         }
+        if (hasUpgrade("main", 22)) {
+            mult = mult.times(5)
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -39,7 +42,7 @@ addLayer("liz", {
     hotkeys: [
         { key: "l", description: "L: Purchase H-E-B Creamy Creations Neapolitan Ice Creams", onPress() { if (canReset(this.layer)) doReset(this.layer) } },
     ],
-    layerShown() { return true },
+    layerShown() { if (hasUpgrade("main", 21)) { return true } },
 
 
     upgrades: {

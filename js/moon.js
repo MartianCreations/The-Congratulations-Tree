@@ -25,6 +25,11 @@ addLayer("moon", {
     exponent: 0.26, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = decimalOne
+
+        if (hasUpgrade("main", 22)) {
+            mult = mult.times(5)
+        }
+
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

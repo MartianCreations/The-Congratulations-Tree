@@ -38,6 +38,9 @@ addLayer("main", {
         if (hasUpgrade("main", 19)) {
             mult = mult.times(15)
         }
+        if (hasUpgrade("main", 23)) {
+            mult = mult.times(10)
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -66,7 +69,7 @@ addLayer("main", {
             }
         },
         12: {
-            title: "I forgot what to name this",
+            title: "i forgot what to name this",
             description: "^1.01 Runes",
             cost: new Decimal(12),
             style: {
@@ -114,14 +117,16 @@ addLayer("main", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
         },
         16: {
-            title: "Watch the Stars",
+            title: "Watch The Stars",
             description: "Unlock Moon Layer",
             cost: new Decimal(1300),
             style: {
-                "height": "150px",
-                "width": "150px",
-                "corner-shape": "squircle"
+                "height": "200px",
+                "width": "200px",
+                "corner-shape": "squircle",
+                "border-radius": "5%",
             },
+            persisting: true,
         },
         17: {
             title: "Mreow",
@@ -157,5 +162,73 @@ addLayer("main", {
                 "corner-shape": "squircle"
             },
         },
+        21: {
+            title: "They Are An Immoral Person",
+            description: "Unlock Liz Layer",
+            cost: new Decimal(27000),
+            style: {
+                "height": "200px",
+                "width": "200px",
+                "corner-shape": "squircle",
+                "border-radius": "5%",
+            },
+            persisting: true,
+        },
+        22: {
+            title: "Admin",
+            description: "5.00x to all layers connecting to this one",
+            cost: new Decimal(30000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
+        23: {
+            title: "Inflation",
+            description: "0.10x Congratulations Buttons but 10.00x Runes",
+            cost: new Decimal(50000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
+        27: {
+            title: "Blue Spec On A Petri Dish",
+            description: "Unlock Cud Layer",
+            cost: new Decimal(700000),
+            style: {
+                "height": "200px",
+                "width": "200px",
+                "corner-shape": "squircle",
+                "border-radius": "5%",
+            },
+            persisting: true,
+        },
     },
+
+
+    tabFormat: [
+        "main-display",
+        "prestige-button",
+        "blank",
+
+        "clickables",
+        "milestones",
+
+        "blank",
+        ["row", [["upgrade", 11], ["upgrade", 12], ["upgrade", 13],]],
+        ["row", [["upgrade", 14], ["upgrade", 15],]],
+        "blank",
+        ["row", [["upgrade", 16],]],
+        "blank",
+        ["row", [["upgrade", 17], ["upgrade", 18], ["upgrade", 19],]],
+        "blank",
+        ["row", [["upgrade", 21],]],
+        "blank",
+        ["row", [["upgrade", 22], ["upgrade", 23],]],
+    ],
+
+
 })

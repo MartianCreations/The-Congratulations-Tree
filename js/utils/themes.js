@@ -1,5 +1,5 @@
 // ************ Themes ************
-var themes = ["default", "aqua",]
+var themes = ["default", "aqua", "pinkie",]
 
 var colors = {
 	default: {
@@ -54,7 +54,6 @@ function switchTheme() {
 	else {
 		index++;
 		options.theme = themes[index];
-		options.theme = themes[1];
 	}
 	changeTheme();
 	resizeCanvas();

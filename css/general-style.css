@@ -9,14 +9,18 @@ body {
 }
 
 /* General text */
-h1, h2, h3, b, input {
+h1,
+h2,
+h3,
+b,
+input {
 	display: inline;
 	font-family: "Lucida Console", "Courier New", monospace
 }
 
 /* These are styles for different states of components. You can make layer-specific versions with .c.locked, for example */
 .locked {
-	background-color: #bf8f8f;
+	background-color: hsl(0, 50%, 50%);
 	cursor: not-allowed;
 }
 
@@ -31,11 +35,22 @@ h1, h2, h3, b, input {
 }
 
 .bought {
-	background-color: #77bf5f;
+	background-color: hsl(120, 50%, 50%);
+	cursor: default;
+}
+
+.persisting {
+	background-color: hsl(300, 50%, 50%);
 	cursor: default;
 }
 
 #points {
 	color: var(--points);
 	text-shadow: 0 0 10px var(--points);
+}
+
+@keyframes upgradeBuy {
+	50% {
+		filter: brightness(127%);
+	}
 }

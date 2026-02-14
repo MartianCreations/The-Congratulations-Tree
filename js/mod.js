@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.013",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "God said: Let there be Congratulations",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -43,6 +43,10 @@ function getPointGen() {
 
 	let gain = decimalOne
 
+	if (hasAchievement("achievements", 11)) {
+		gain = gain.times(2)
+	}
+
 	if (hasUpgrade("main", 11)) {
 		gain = gain.times(1.50)
 	}
@@ -64,6 +68,9 @@ function getPointGen() {
 	if (hasUpgrade("main", 19)) {
 		gain = gain.times(15)
 	}
+	if (hasUpgrade("main", 23)) {
+		gain = gain.times(0.1)
+	}
 	return gain
 }
 
@@ -79,7 +86,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.points.gte(new Decimal("e1313"))
 }
 
 

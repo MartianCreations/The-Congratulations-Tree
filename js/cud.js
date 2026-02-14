@@ -28,6 +28,9 @@ addLayer("cud", {
         if (hasUpgrade("cud", 11)) {
             mult = mult.times(2)
         }
+        if (hasUpgrade("main", 22)) {
+            mult = mult.times(5)
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -39,7 +42,7 @@ addLayer("cud", {
     hotkeys: [
         { key: "a", description: "A: Split for Amoebas", onPress() { if (canReset(this.layer)) doReset(this.layer) } },
     ],
-    layerShown() { return true },
+    layerShown() { if (hasUpgrade("main", 22)) { return true } },
 
 
     upgrades: {
