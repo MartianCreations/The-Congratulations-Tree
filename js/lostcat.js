@@ -33,7 +33,7 @@ addLayer("lostcat", {
 
         return exp
     },
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    row: 2, // Row the layer is in on the tree (0 is the first row)
     branches: ["moon"],
     hotkeys: [
         { key: "f", description: "F: Fish for Fish", onPress() { if (canReset(this.layer)) doReset(this.layer) } },
@@ -48,7 +48,7 @@ addLayer("lostcat", {
     clickables: {
         11: {
             title: "Sell Fish",
-            display() { return "Blah" },
+            display() { return "Sell your fish!" },
             canClick() {
                 return player[this.layer].points.gt(0)
             },
@@ -109,5 +109,6 @@ addLayer("lostcat", {
 
         "blank",
         ["row", [["upgrade", 11],]],
+        "blank",
     ],
 })

@@ -32,7 +32,7 @@ addLayer("cud", {
             mult = mult.times(5)
         }
         if (hasUpgrade("main", 27)) {
-            mult = mult.times(7)
+            mult = mult.times(7.77)
         }
         return mult
     },
@@ -64,6 +64,16 @@ addLayer("cud", {
                 "corner-shape": "squircle"
             }
         },
+        12: {
+            title: "moon stop adding spinners",
+            description: "^0.80 and 13x Planets",
+            cost: new Decimal(50),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            }
+        },
     },
 
 
@@ -77,6 +87,7 @@ addLayer("cud", {
         "milestones",
 
         "blank",
-        ["row", [["upgrade", 11],]],
+        ["row", [["upgrade", 11], ["upgrade", 12],]],
+        "blank",
     ],
 })

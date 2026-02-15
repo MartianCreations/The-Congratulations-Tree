@@ -29,14 +29,29 @@ addLayer("moon", {
         if (hasUpgrade("main", 22)) {
             mult = mult.times(5)
         }
+        if (hasUpgrade("main", 28)) {
+            mult = mult.times(13)
+        }
         if (hasUpgrade("moon", 11)) {
             mult = mult.times(0.52)
         }
+        if (hasUpgrade("liz", 12)) {
+            mult = mult.times(2.6)
+        }
+        if (hasUpgrade("cud", 12)) {
+            mult = mult.times(13)
+        }
+
 
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = decimalOne
+
+        if (hasUpgrade("moon", 12)) {
+            exp = exp.times(0.8)
+        }
+
         return exp
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -76,7 +91,7 @@ addLayer("moon", {
         13: {
             title: "i forgot what to name this again",
             description: "^1.10 Runes",
-            cost: new Decimal(1300),
+            cost: new Decimal(520),
             style: {
                 "height": "150px",
                 "width": "150px",
@@ -86,7 +101,7 @@ addLayer("moon", {
         14: {
             title: "Sillium",
             description: "13.00x Congratulations Buttons",
-            cost: new Decimal(2600),
+            cost: new Decimal(650),
             style: {
                 "height": "150px",
                 "width": "150px",
@@ -96,7 +111,7 @@ addLayer("moon", {
         15: {
             title: "Type 1 Civilization",
             description: "Start passively generating Runes",
-            cost: new Decimal(5000),
+            cost: new Decimal(1300),
             style: {
                 "height": "150px",
                 "width": "150px",
@@ -108,10 +123,12 @@ addLayer("moon", {
             description: "Unlock the Lostcat Layer",
             cost: new Decimal(10000),
             style: {
-                "height": "150px",
-                "width": "150px",
-                "corner-shape": "squircle"
-            }
+                "height": "200px",
+                "width": "200px",
+                "corner-shape": "squircle",
+                "border-radius": "5%",
+            },
+            persisting: true,
         },
     },
 
@@ -127,5 +144,8 @@ addLayer("moon", {
         "blank",
         ["row", [["upgrade", 11], ["upgrade", 12], ["upgrade", 13], ["upgrade", 14],]],
         ["row", [["upgrade", 15],]],
+        "blank",
+        ["row", [["upgrade", 16],]],
+        "blank",
     ],
 })

@@ -74,7 +74,7 @@ addLayer("main", {
         return exp
     },
     passiveGeneration() {
-        let gain = decimalOne
+        gain = decimalOne
 
         function canGenPoints() {
             if (hasUpgrade("moon", 15)) {
@@ -84,10 +84,6 @@ addLayer("main", {
         }
         if (!canGenPoints()) {
             gain = new Decimal(0)
-        }
-
-        if (hasUpgrade("moon", 15)) {
-            gain = gain.times(1.50)
         }
 
         return gain
@@ -273,8 +269,8 @@ addLayer("main", {
         },
         27: {
             title: "CUD!! DON'T ABBREVIATE CLICK POWER!!! CUD!!!!",
-            description: "7.00x Amoebas",
-            cost: new Decimal(10000000000),
+            description: "7.77x Amoebas",
+            cost: new Decimal(500000000000),
             style: {
                 "height": "150px",
                 "width": "150px",
@@ -282,6 +278,26 @@ addLayer("main", {
             },
         },
         28: {
+            title: "moon can i voice more dac characters",
+            description: "13.00x Planets",
+            cost: new Decimal(500000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
+        29: {
+            title: "lizaDEAD",
+            description: "7.00x H-E-B Creamy Creations Neapolitan Ice Creams",
+            cost: new Decimal(500000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
+        52: {
             title: "YURI!? WHERE!?",
             description: "If the Liz Layer and Fizzy Layer are both unlocked, they start to scale off of eachother.",
             cost: new Decimal(50000000000),
@@ -321,7 +337,8 @@ addLayer("main", {
         "blank",
         ["row", [["upgrade", 26],]],
         "blank",
-        ["row", [["upgrade", 27],]],
+        ["row", [["upgrade", 27], ["upgrade", 28], ["upgrade", 29],]],
+        "blank",
     ],
 
 
