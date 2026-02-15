@@ -56,7 +56,7 @@ addLayer("liz", {
     upgrades: {
         11: {
             title: "You Can Do This Girl!",
-            description: "7.00x Congratulations Points but 0.7x H-E-B Creamy Creations Neapolitan Ice Cream",
+            description: "7.00x Congratulations Buttons but 0.7x H-E-B Creamy Creations Neapolitan Ice Cream",
             cost: new Decimal(10),
             style: {
                 "height": "150px",

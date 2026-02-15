@@ -142,7 +142,7 @@ addLayer("main", {
         },
         15: {
             title: "㊗",
-            description: "Congratulations Points now scale off of Congratulations Points",
+            description: "Congratulations Buttons now scale off of Congratulations Buttons",
             cost: new Decimal(300),
             style: {
                 "height": "150px",
@@ -195,7 +195,7 @@ addLayer("main", {
         },
         19: {
             title: "@new role anyone a15",
-            description: "15.00x Runes and 15.00x Congratulations Points",
+            description: "15.00x Runes and 15.00x Congratulations Buttons",
             cost: new Decimal(300000),
             style: {
                 "height": "150px",

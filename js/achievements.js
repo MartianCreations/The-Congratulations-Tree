@@ -35,8 +35,8 @@ addLayer("achievements", {
             onComplete() {
                 player[this.layer].points = player[this.layer].points.add(1)
             },
-            goalTooltip: "Unlock the Moon Layer<br>Reward: 3.90x Congratulations Points", // Shows when achievement is not completed
-            doneTooltip: "Unlock the Moon Layer<br>Reward: 3.90x Congratulations Points", // Showed when the achievement is completed
+            goalTooltip: "Unlock the Moon Layer<br>Reward: 3.90x Congratulations Buttons", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Moon Layer<br>Reward: 3.90x Congratulations Buttons", // Showed when the achievement is completed
             style: {
                 "height": "100px",
                 "width": "100px",
@@ -73,8 +73,8 @@ addLayer("achievements", {
             onComplete() {
                 player[this.layer].points = player[this.layer].points.add(1)
             },
-            goalTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Points and Runes", // Shows when achievement is not completed
-            doneTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Points and Runes", // Showed when the achievement is completed
+            goalTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Buttons and Runes", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Buttons and Runes", // Showed when the achievement is completed
             style: {
                 "height": "100px",
                 "width": "100px",
