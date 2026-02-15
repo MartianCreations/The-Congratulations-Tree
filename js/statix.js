@@ -226,7 +226,7 @@ addLayer("main", {
             },
         },
         23: {
-            title: "Inflation",
+            title: "Give Me Your Money",
             description: "0.10x Congratulations Buttons but 8.00x Runes",
             cost: new Decimal(30000000),
             style: {
