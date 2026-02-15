@@ -16,8 +16,12 @@ let VERSION = {
 	name: "God said: Let there be Congratulations",
 }
 
-let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
+let changelog =
+	`<h1>Changelog:</h1><br>
+	<h3>Release: v0.1</h3><br>
+		- Added Lostcat Layer<br>
+	<br><br>
+	<h3>Release: v0.013</h3><br>
 		- Added things.<br>
 		- Added stuff.`
 
