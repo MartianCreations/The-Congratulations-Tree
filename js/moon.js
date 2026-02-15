@@ -95,7 +95,7 @@ addLayer("moon", {
             style: {
                 "height": "150px",
                 "width": "150px",
-                "corner-shape": "squircle"
+                "corner-shape": "scoop"
             }
         },
         14: {
