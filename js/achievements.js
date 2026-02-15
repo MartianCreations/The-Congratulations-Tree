@@ -32,8 +32,11 @@ addLayer("achievements", {
             done() {
                 return hasUpgrade("main", 16)
             },
-            goalTooltip: "Unlock the Moon Layer", // Shows when achievement is not completed
-            doneTooltip: "Unlock the Moon Layer", // Showed when the achievement is completed
+            onComplete() {
+                player[this.layer].points = player[this.layer].points.add(1)
+            },
+            goalTooltip: "Unlock the Moon Layer<br>Reward: 3.90x Congratulations Points", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Moon Layer<br>Reward: 3.90x Congratulations Points", // Showed when the achievement is completed
             style: {
                 "height": "100px",
                 "width": "100px",
@@ -46,10 +49,13 @@ addLayer("achievements", {
             image: "resources/Liz.svg",
             name: "I scream you scream",
             done() {
-                return false
+                return hasUpgrade("main", 21)
             },
-            goalTooltip: "Unlock the Liz Layer", // Shows when achievement is not completed
-            doneTooltip: "Unlock the Liz Layer", // Showed when the achievement is completed
+            onComplete() {
+                player[this.layer].points = player[this.layer].points.add(1)
+            },
+            goalTooltip: "Unlock the Liz Layer<br>Reward: 4x Runes", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Liz Layer<br>Reward: 4x Runes", // Showed when the achievement is completed
             style: {
                 "height": "100px",
                 "width": "100px",
@@ -62,10 +68,13 @@ addLayer("achievements", {
             image: "resources/Cud.svg",
             name: "Best Buddy",
             done() {
-                return false
+                return hasUpgrade("main", 26)
             },
-            goalTooltip: "Unlock the Cud Layer", // Shows when achievement is not completed
-            doneTooltip: "Unlock the Cud Layer", // Showed when the achievement is completed
+            onComplete() {
+                player[this.layer].points = player[this.layer].points.add(1)
+            },
+            goalTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Points and Runes", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Points and Runes", // Showed when the achievement is completed
             style: {
                 "height": "100px",
                 "width": "100px",

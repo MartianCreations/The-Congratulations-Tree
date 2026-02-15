@@ -5,7 +5,7 @@ addLayer("liz", {
     image: "resources/Liz.svg",
     startData() {
         return {
-            unlocked: true,
+            unlocked: false,
             points: new Decimal(0),
         }
     },
@@ -42,7 +42,12 @@ addLayer("liz", {
     hotkeys: [
         { key: "l", description: "L: Purchase H-E-B Creamy Creations Neapolitan Ice Creams", onPress() { if (canReset(this.layer)) doReset(this.layer) } },
     ],
-    layerShown() { if (hasUpgrade("main", 21)) { return true } },
+    layerShown() {
+        if (hasUpgrade("main", 21)) {
+            unlocked = true
+            return true
+        }
+    },
 
 
     upgrades: {
@@ -56,5 +61,18 @@ addLayer("liz", {
                 "corner-shape": "squircle"
             }
         },
-    }
+    },
+
+    tabFormat: [
+        "main-display",
+        "resource-display",
+        "prestige-button",
+        "blank",
+
+        "clickables",
+        "milestones",
+
+        "blank",
+        ["row", [["upgrade", 11],]],
+    ],
 })

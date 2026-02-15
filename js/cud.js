@@ -5,7 +5,7 @@ addLayer("cud", {
     image: "resources/Cud.svg",
     startData() {
         return {
-            unlocked: true,
+            unlocked: false,
             points: new Decimal(0),
         }
     },
@@ -31,6 +31,9 @@ addLayer("cud", {
         if (hasUpgrade("main", 22)) {
             mult = mult.times(5)
         }
+        if (hasUpgrade("main", 27)) {
+            mult = mult.times(7)
+        }
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -42,7 +45,12 @@ addLayer("cud", {
     hotkeys: [
         { key: "a", description: "A: Split for Amoebas", onPress() { if (canReset(this.layer)) doReset(this.layer) } },
     ],
-    layerShown() { if (hasUpgrade("main", 22)) { return true } },
+    layerShown() {
+        if (hasUpgrade("main", 26)) {
+            unlocked = true
+            return true
+        }
+    },
 
 
     upgrades: {
@@ -56,5 +64,19 @@ addLayer("cud", {
                 "corner-shape": "squircle"
             }
         },
-    }
+    },
+
+
+    tabFormat: [
+        "main-display",
+        "resource-display",
+        "prestige-button",
+        "blank",
+
+        "clickables",
+        "milestones",
+
+        "blank",
+        ["row", [["upgrade", 11],]],
+    ],
 })

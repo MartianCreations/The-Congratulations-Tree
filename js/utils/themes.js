@@ -1,5 +1,5 @@
 // ************ Themes ************
-var themes = ["default", "aqua", "pinkie",]
+var themes = ["default", "aqua", "pinkie", "ourple",]
 
 var colors = {
 	default: {
@@ -23,14 +23,24 @@ var colors = {
 		background_tooltip: "rgba(0, 15, 31, 0.75)",
 	},
 	pinkie: {
-		1: "#ffa3f6",
-		2: "#ff80f2",
-		3: "#ff5cef",
+		1: "#ffbcf8",
+		2: "#ff9bf5",
+		3: "#ff7df2",
 		color: "#ffa3f6",
 		points: "#ff80f2",
 		locked: "#ff5cef",
-		background: "#b814a7",
+		background: "#7c0e71",
 		background_tooltip: "rgba(184, 20, 167, 0.75)",
+	},
+	ourple: {
+		1: "#d6a0ff",
+		2: "#cb87ff",
+		3: "#c77dff",
+		color: "#d6a0ff",
+		points: "#cb87ff",
+		locked: "#c77dff",
+		background: "#44116b",
+		background_tooltip: "rgba(68, 17, 107, 0.75)",
 	},
 }
 function changeTheme() {

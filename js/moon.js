@@ -5,7 +5,7 @@ addLayer("moon", {
     image: "resources/Moon.svg",
     startData() {
         return {
-            unlocked: true,
+            unlocked: false,
             points: new Decimal(0),
         }
     },
@@ -29,6 +29,9 @@ addLayer("moon", {
         if (hasUpgrade("main", 22)) {
             mult = mult.times(5)
         }
+        if (hasUpgrade("moon", 11)) {
+            mult = mult.times(0.52)
+        }
 
         return mult
     },
@@ -41,19 +44,88 @@ addLayer("moon", {
     hotkeys: [
         { key: "p", description: "P: Search for Planets", onPress() { if (canReset(this.layer)) doReset(this.layer) } },
     ],
-    layerShown() { if (hasUpgrade("main", 16)) { return true } },
+    layerShown() {
+        if (hasUpgrade("main", 16)) {
+            unlocked = true
+            return true
+        }
+    },
 
 
     upgrades: {
         11: {
-            title: "Meteor",
-            description: "13x Congratulations Buttons",
-            cost: new Decimal(50),
+            title: "Masochism",
+            description: "0.52x Planets but 1.30x Runes",
+            cost: new Decimal(13),
             style: {
                 "height": "150px",
                 "width": "150px",
                 "corner-shape": "squircle"
             }
         },
-    }
+        12: {
+            title: "you wanted heals...",
+            description: "0.13x Congratulations Buttons but 3.90x to all layers connecting to this one",
+            cost: new Decimal(260),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            }
+        },
+        13: {
+            title: "i forgot what to name this again",
+            description: "^1.10 Runes",
+            cost: new Decimal(1300),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            }
+        },
+        14: {
+            title: "Sillium",
+            description: "13.00x Congratulations Buttons",
+            cost: new Decimal(2600),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            }
+        },
+        15: {
+            title: "Type 1 Civilization",
+            description: "Start passively generating Runes",
+            cost: new Decimal(5000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            }
+        },
+        16: {
+            title: "Found Cat",
+            description: "Unlock the Lostcat Layer",
+            cost: new Decimal(10000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            }
+        },
+    },
+
+    tabFormat: [
+        "main-display",
+        "resource-display",
+        "prestige-button",
+        "blank",
+
+        "clickables",
+        "milestones",
+
+        "blank",
+        ["row", [["upgrade", 11], ["upgrade", 12], ["upgrade", 13], ["upgrade", 14],]],
+        ["row", [["upgrade", 15],]],
+    ],
 })

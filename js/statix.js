@@ -26,6 +26,13 @@ addLayer("main", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = decimalOne
 
+        if (hasAchievement("achievements", 12)) {
+            mult = mult.times(4)
+        }
+        if (hasAchievement("achievements", 13)) {
+            mult = mult.times(7)
+        }
+
         if (hasUpgrade("main", 14)) {
             mult = mult.times(5)
         }
@@ -39,8 +46,18 @@ addLayer("main", {
             mult = mult.times(15)
         }
         if (hasUpgrade("main", 23)) {
-            mult = mult.times(10)
+            mult = mult.times(8)
         }
+        if (hasUpgrade("main", 25)) {
+            mult = mult.times(1.5)
+        }
+        if (hasUpgrade("moon", 11)) {
+            mult = mult.times(1.3)
+        }
+        if (hasUpgrade("moon", 12)) {
+            mult = mult.times(3.9)
+        }
+
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -48,7 +65,32 @@ addLayer("main", {
         if (hasUpgrade("main", 12)) {
             exp = exp.times(1.01)
         }
+        if (hasUpgrade("main", 25)) {
+            exp = exp.times(0.95)
+        }
+        if (hasUpgrade("moon", 13)) {
+            exp = exp.times(1.1)
+        }
         return exp
+    },
+    passiveGeneration() {
+        let gain = decimalOne
+
+        function canGenPoints() {
+            if (hasUpgrade("moon", 15)) {
+                return true
+            }
+            return false
+        }
+        if (!canGenPoints()) {
+            gain = new Decimal(0)
+        }
+
+        if (hasUpgrade("moon", 15)) {
+            gain = gain.times(1.50)
+        }
+
+        return gain
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -148,6 +190,9 @@ addLayer("main", {
                 "corner-shape": "squircle"
             },
             effect() {
+                if (hasUpgrade("main", 24)) {
+                    return new Decimal(player["main"].resetTime).times(1.25).min(50000)
+                }
                 return new Decimal(player["main"].resetTime).min(50000)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
@@ -155,7 +200,7 @@ addLayer("main", {
         19: {
             title: "@new role anyone a15",
             description: "15.00x Runes and 15.00x Congratulations Points",
-            cost: new Decimal(15000),
+            cost: new Decimal(300000),
             style: {
                 "height": "150px",
                 "width": "150px",
@@ -165,7 +210,7 @@ addLayer("main", {
         21: {
             title: "They Are An Immoral Person",
             description: "Unlock Liz Layer",
-            cost: new Decimal(27000),
+            cost: new Decimal(7000000),
             style: {
                 "height": "200px",
                 "width": "200px",
@@ -177,7 +222,7 @@ addLayer("main", {
         22: {
             title: "Admin",
             description: "5.00x to all layers connecting to this one",
-            cost: new Decimal(30000),
+            cost: new Decimal(10000000),
             style: {
                 "height": "150px",
                 "width": "150px",
@@ -186,18 +231,38 @@ addLayer("main", {
         },
         23: {
             title: "Inflation",
-            description: "0.10x Congratulations Buttons but 10.00x Runes",
-            cost: new Decimal(50000),
+            description: "0.10x Congratulations Buttons but 8.00x Runes",
+            cost: new Decimal(30000000),
             style: {
                 "height": "150px",
                 "width": "150px",
                 "corner-shape": "squircle"
             },
         },
-        27: {
+        24: {
+            title: "*ALARM BLARES*",
+            description: "Increase the effectiveness of <b>'m!p uhh'</b>",
+            cost: new Decimal(500000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
+        25: {
+            title: "Analog Horror Scream",
+            description: "^0.95 and 1.50x Runes",
+            cost: new Decimal(1000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
+        26: {
             title: "Blue Spec On A Petri Dish",
             description: "Unlock Cud Layer",
-            cost: new Decimal(700000),
+            cost: new Decimal(7000000000),
             style: {
                 "height": "200px",
                 "width": "200px",
@@ -206,11 +271,36 @@ addLayer("main", {
             },
             persisting: true,
         },
+        27: {
+            title: "CUD!! DON'T ABBREVIATE CLICK POWER!!! CUD!!!!",
+            description: "7.00x Amoebas",
+            cost: new Decimal(10000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
+        28: {
+            title: "YURI!? WHERE!?",
+            description: "If the Liz Layer and Fizzy Layer are both unlocked, they start to scale off of eachother.",
+            cost: new Decimal(50000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+            effect() {
+                return player["liz"].points.log(10)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
+        }
     },
 
 
     tabFormat: [
         "main-display",
+        "resource-display",
         "prestige-button",
         "blank",
 
@@ -218,8 +308,8 @@ addLayer("main", {
         "milestones",
 
         "blank",
-        ["row", [["upgrade", 11], ["upgrade", 12], ["upgrade", 13],]],
-        ["row", [["upgrade", 14], ["upgrade", 15],]],
+        ["row", [["upgrade", 11], ["upgrade", 12], ["upgrade", 13], ["upgrade", 14],]],
+        ["row", [["upgrade", 15],]],
         "blank",
         ["row", [["upgrade", 16],]],
         "blank",
@@ -227,7 +317,11 @@ addLayer("main", {
         "blank",
         ["row", [["upgrade", 21],]],
         "blank",
-        ["row", [["upgrade", 22], ["upgrade", 23],]],
+        ["row", [["upgrade", 22], ["upgrade", 23], ["upgrade", 24], ["upgrade", 25],]],
+        "blank",
+        ["row", [["upgrade", 26],]],
+        "blank",
+        ["row", [["upgrade", 27],]],
     ],
 
 
