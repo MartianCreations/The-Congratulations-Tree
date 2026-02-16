@@ -74,7 +74,7 @@ addLayer("main", {
         return exp
     },
     passiveGeneration() {
-        gain = decimalOne
+        gain = new Decimal(0.01)
 
         function canGenPoints() {
             if (hasUpgrade("moon", 15)) {
