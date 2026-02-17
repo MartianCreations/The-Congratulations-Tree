@@ -8,7 +8,7 @@ addLayer("achievements", {
     startData() {
         return {
             unlocked: true,
-            points: new Decimal(0),
+            points: decimalZero,
         }
     },
     nodeStyle() {
@@ -54,8 +54,8 @@ addLayer("achievements", {
             onComplete() {
                 player[this.layer].points = player[this.layer].points.add(1)
             },
-            goalTooltip: "Unlock the Liz Layer<br>Reward: 4x Runes", // Shows when achievement is not completed
-            doneTooltip: "Unlock the Liz Layer<br>Reward: 4x Runes", // Showed when the achievement is completed
+            goalTooltip: "Unlock the Liz Layer<br>Reward: 4.00x Runes", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Liz Layer<br>Reward: 4.00x Runes", // Showed when the achievement is completed
             style: {
                 "height": "100px",
                 "width": "100px",
@@ -73,8 +73,46 @@ addLayer("achievements", {
             onComplete() {
                 player[this.layer].points = player[this.layer].points.add(1)
             },
-            goalTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Buttons and Runes", // Shows when achievement is not completed
-            doneTooltip: "Unlock the Cud Layer<br>Reward: 7x Congratulations Buttons and Runes", // Showed when the achievement is completed
+            goalTooltip: "Unlock the Cud Layer<br>Reward: 7.00x Congratulations Buttons and Runes", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Cud Layer<br>Reward: 7.00x Congratulations Buttons and Runes", // Showed when the achievement is completed
+            style: {
+                "height": "100px",
+                "width": "100px",
+                "corner-shape": "squircle",
+                "background-repeat": "no-repeat",
+                "background-position": "center",
+            },
+        },
+        14: {
+            image: "resources/Lostcat.svg",
+            name: "Cat Fishing",
+            done() {
+                return hasUpgrade("moon", 16)
+            },
+            onComplete() {
+                player[this.layer].points = player[this.layer].points.add(1)
+            },
+            goalTooltip: "Unlock the Lostcat Layer<br>Reward: 4.00x Congratulations Buttons and 1.30x Planets", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Lostcat Layer<br>Reward: 4.00x Congratulations Buttons and 1.30x Planets", // Showed when the achievement is completed
+            style: {
+                "height": "100px",
+                "width": "100px",
+                "corner-shape": "squircle",
+                "background-repeat": "no-repeat",
+                "background-position": "center",
+            },
+        },
+        15: {
+            image: "resources/Fizzy.svg",
+            name: "Fizared",
+            done() {
+                return hasUpgrade("liz", 15)
+            },
+            onComplete() {
+                player[this.layer].points = player[this.layer].points.add(1)
+            },
+            goalTooltip: "Unlock the Fizzy Layer<br>Reward: 7.00x H-E-B Creamy Creations Neapolitan Ice Creams and Amoebas", // Shows when achievement is not completed
+            doneTooltip: "Unlock the Fizzy Layer<br>Reward: 7.00x H-E-B Creamy Creations Neapolitan Ice Creams and Amoebas", // Showed when the achievement is completed
             style: {
                 "height": "100px",
                 "width": "100px",

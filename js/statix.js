@@ -6,7 +6,7 @@ addLayer("main", {
     startData() {
         return {
             unlocked: true,
-            points: new Decimal(0),
+            points: decimalZero,
         }
     },
     nodeStyle() {
@@ -49,13 +49,16 @@ addLayer("main", {
             mult = mult.times(8)
         }
         if (hasUpgrade("main", 25)) {
-            mult = mult.times(1.5)
+            mult = mult.times(10)
         }
         if (hasUpgrade("moon", 11)) {
             mult = mult.times(1.3)
         }
         if (hasUpgrade("moon", 12)) {
             mult = mult.times(3.9)
+        }
+        if (hasUpgrade("liz", 14)) {
+            mult = mult.times(0.01)
         }
 
         return mult
@@ -66,7 +69,7 @@ addLayer("main", {
             exp = exp.times(1.01)
         }
         if (hasUpgrade("main", 25)) {
-            exp = exp.times(0.95)
+            exp = exp.times(0.85)
         }
         if (hasUpgrade("moon", 13)) {
             exp = exp.times(1.1)
@@ -74,7 +77,7 @@ addLayer("main", {
         return exp
     },
     passiveGeneration() {
-        gain = new Decimal(0.01)
+        gain = new Decimal(0.001)
 
         function canGenPoints() {
             if (hasUpgrade("moon", 15)) {
@@ -83,7 +86,7 @@ addLayer("main", {
             return false
         }
         if (!canGenPoints()) {
-            gain = new Decimal(0)
+            gain = decimalZero
         }
 
         return gain
@@ -156,7 +159,7 @@ addLayer("main", {
         },
         16: {
             title: "Watch The Stars",
-            description: "Unlock Moon Layer",
+            description: "Unlock the Moon Layer",
             cost: new Decimal(1300),
             style: {
                 "height": "200px",
@@ -175,6 +178,11 @@ addLayer("main", {
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16)
+            },
         },
         18: {
             title: "m!p uhh",
@@ -187,11 +195,16 @@ addLayer("main", {
             },
             effect() {
                 if (hasUpgrade("main", 24)) {
-                    return new Decimal(player["main"].resetTime).times(1.25).min(50000)
+                    return new Decimal(player["main"].resetTime).times(1.5).min(50000)
                 }
                 return new Decimal(player["main"].resetTime).min(50000)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16)
+            },
         },
         19: {
             title: "@new role anyone a15",
@@ -202,10 +215,15 @@ addLayer("main", {
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16)
+            },
         },
         21: {
             title: "They Are An Immoral Person",
-            description: "Unlock Liz Layer",
+            description: "Unlock the Liz Layer",
             cost: new Decimal(7000000),
             style: {
                 "height": "200px",
@@ -214,6 +232,11 @@ addLayer("main", {
                 "border-radius": "5%",
             },
             persisting: true,
+
+
+            unlocked() {
+                return hasUpgrade("main", 16)
+            },
         },
         22: {
             title: "Admin",
@@ -223,6 +246,11 @@ addLayer("main", {
                 "height": "150px",
                 "width": "150px",
                 "corner-shape": "squircle"
+            },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21)
             },
         },
         23: {
@@ -234,6 +262,11 @@ addLayer("main", {
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21)
+            },
         },
         24: {
             title: "*ALARM BLARES*",
@@ -244,20 +277,30 @@ addLayer("main", {
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21)
+            },
         },
         25: {
             title: "Analog Horror Scream",
-            description: "^0.95 and 1.50x Runes",
+            description: "^0.85 and 10x Runes",
             cost: new Decimal(1000000000),
             style: {
                 "height": "150px",
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21)
+            },
         },
         26: {
             title: "Blue Spec On A Petri Dish",
-            description: "Unlock Cud Layer",
+            description: "Unlock the Cud Layer",
             cost: new Decimal(7000000000),
             style: {
                 "height": "200px",
@@ -266,6 +309,11 @@ addLayer("main", {
                 "border-radius": "5%",
             },
             persisting: true,
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21)
+            },
         },
         27: {
             title: "CUD!! DON'T ABBREVIATE CLICK POWER!!! CUD!!!!",
@@ -275,6 +323,11 @@ addLayer("main", {
                 "height": "150px",
                 "width": "150px",
                 "corner-shape": "squircle"
+            },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26)
             },
         },
         28: {
@@ -286,6 +339,11 @@ addLayer("main", {
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26)
+            },
         },
         29: {
             title: "lizaDEAD",
@@ -296,20 +354,75 @@ addLayer("main", {
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26)
+            },
         },
-        52: {
-            title: "YURI!? WHERE!?",
-            description: "If the Liz Layer and Fizzy Layer are both unlocked, they start to scale off of eachother.",
-            cost: new Decimal(50000000000),
+        31: {
+            title: "Lost Kitty Meow Meow",
+            description: "2.00x Cash",
+            cost: new Decimal(500000000000),
             style: {
                 "height": "150px",
                 "width": "150px",
                 "corner-shape": "squircle"
             },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26)
+            },
+        },
+        32: {
+            title: "Soda Pop",
+            description: "3.00x Radnor Fizz",
+            cost: new Decimal(500000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26)
+            },
+        },
+        33: {
+            title: "This Is Overpowered",
+            description: "200x Congratulations Buttons",
+            cost: new Decimal(1000000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26)
+            },
+        },
+        34: {
+            title: "YURI!? WHERE!?",
+            description: "If the Liz and Fizzy layers exist, scale them off of their product",
+            cost: new Decimal(70000000000000),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "bevel"
+            },
             effect() {
-                return player["liz"].points.log(10)
+                return player["liz"].points.times(player["fizzy"].points).add(1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
+
+
+            unlocked() {
+                return hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26) && player["liz"].unlocked && player["fizzy"].unlocked
+            },
         }
     },
 
@@ -322,22 +435,59 @@ addLayer("main", {
 
         "clickables",
         "milestones",
+        "blank",
 
+
+        "blank",
+        ["display-text", function () {
+            return "<h3>[ Moon Tree ]</h3>"
+        }],
         "blank",
         ["row", [["upgrade", 11], ["upgrade", 12], ["upgrade", 13], ["upgrade", 14],]],
         ["row", [["upgrade", 15],]],
         "blank",
         ["row", [["upgrade", 16],]],
         "blank",
+
+
+        "blank",
+        ["display-text", function () {
+            if (hasUpgrade("main", 16)) {
+                return "<h3>[ Liz Tree ]</h3>"
+            }
+            return ""
+        }],
+        "blank",
         ["row", [["upgrade", 17], ["upgrade", 18], ["upgrade", 19],]],
         "blank",
         ["row", [["upgrade", 21],]],
+        "blank",
+
+
+        "blank",
+        ["display-text", function () {
+            if (hasUpgrade("main", 21)) {
+                return "<h3>[ Cud Tree ]</h3>"
+            }
+            return ""
+        }],
         "blank",
         ["row", [["upgrade", 22], ["upgrade", 23], ["upgrade", 24], ["upgrade", 25],]],
         "blank",
         ["row", [["upgrade", 26],]],
         "blank",
-        ["row", [["upgrade", 27], ["upgrade", 28], ["upgrade", 29],]],
+
+
+        "blank",
+        ["display-text", function () {
+            if (hasUpgrade("main", 16)) {
+                return "<h3>[ More Upgrades ]</h3>"
+            }
+            return ""
+        }],
+        "blank",
+        ["row", [["upgrade", 27], ["upgrade", 28], ["upgrade", 29], ["upgrade", 31],]],
+        ["row", [["upgrade", 32], ["upgrade", 33], ["upgrade", 34],]],
         "blank",
     ],
 

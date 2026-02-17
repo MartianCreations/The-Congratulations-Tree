@@ -24,6 +24,11 @@ input {
 	cursor: not-allowed;
 }
 
+.lockedclickable {
+	background-color: hsl(0, 0%, 25%) !important;
+	cursor: not-allowed;
+}
+
 /* Can meens can be clicked/bought/etc */
 .can {
 	cursor: pointer;

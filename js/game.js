@@ -15,7 +15,7 @@ function getResetGain(layer, useType = null) {
 			return layers[layer].getResetGain()
 	}
 	if (tmp[layer].type == "none")
-		return new Decimal(0)
+		return decimalZero
 	if (tmp[layer].gainExp.eq(0)) return decimalZero
 	if (type == "static") {
 		if ((!tmp[layer].canBuyMax) || tmp[layer].baseAmount.lt(tmp[layer].requires)) return decimalOne

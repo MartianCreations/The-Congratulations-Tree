@@ -9,9 +9,9 @@ addLayer("c", {
     startData() {
         return {
             unlocked: true,
-            points: new Decimal(0),
-            best: new Decimal(0),
-            total: new Decimal(0),
+            points: decimalZero,
+            best: decimalZero,
+            total: decimalZero,
             buyables: {}, // You don't actually have to initialize this one
             beep: false,
             thingy: "pointy",

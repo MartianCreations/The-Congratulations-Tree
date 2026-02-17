@@ -6,7 +6,7 @@ This is a relatively minimal layer with few features. Most things will require a
 addLayer("p", {
     startData() { return {                  // startData is a function that returns default data for a layer. 
         unlocked: true,                     // You can add more variables here to add them to your layer.
-        points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
+        points: decimalZero,             // "points" is the internal name for the main resource of the layer.
     }},
 
     color: "#4BDC13",                       // The color for this layer, which affects many elements.
