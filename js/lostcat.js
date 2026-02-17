@@ -188,7 +188,7 @@ addLayer("lostcat", {
             },
 
             onPurchase() {
-                return player[this.layer].fish.sub(this.fishcost)
+                player[this.layer].fish.sub(this.fishcost)
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost) && player[this.layer].fish.gte(this.fishcost)
