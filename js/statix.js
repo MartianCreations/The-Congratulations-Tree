@@ -480,7 +480,7 @@ addLayer("main", {
 
         "blank",
         ["display-text", function () {
-            if (hasUpgrade("main", 16)) {
+            if (hasUpgrade("main", 16) && hasUpgrade("main", 21) && hasUpgrade("main", 26)) {
                 return "<h3>[ More Upgrades ]</h3>"
             }
             return ""
