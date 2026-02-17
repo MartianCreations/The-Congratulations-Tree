@@ -190,7 +190,7 @@ addLayer("liz", {
         "blank",
         ["display-text", function () {
             if (hasUpgrade("liz", 15)) {
-                return "<h3>[ Other Upgrades ]</h3>"
+                return "<h3>[ More Upgrades ]</h3>"
             }
             return ""
         }],
