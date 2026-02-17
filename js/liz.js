@@ -112,7 +112,7 @@ addLayer("liz", {
         },
         14: {
             title: "this will save dac!",
-            description: "^0.8 Congratulations Buttons but 13.00x Planets and H-E-B Creamy Creations Neapolitan Ice Creams",
+            description: "0.10x Congratulations Buttons but 13.00x Planets and H-E-B Creamy Creations Neapolitan Ice Creams",
             cost: new Decimal(650),
             style: {
                 "height": "175px",
