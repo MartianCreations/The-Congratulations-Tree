@@ -1,5 +1,5 @@
 // ************ Themes ************
-var themes = ["default", "aqua", "pinkie", "ourple",]
+var themes = ["default", "aqua", "pinkie", "ourple", "greed",]
 
 var colors = {
 	default: {
@@ -29,8 +29,8 @@ var colors = {
 		color: "#ffa3f6",
 		points: "#ff80f2",
 		locked: "#ff5cef",
-		background: "#7c0e71",
-		background_tooltip: "rgba(184, 20, 167, 0.75)",
+		background: "#5c0b54",
+		background_tooltip: "rgba(92, 11, 84, 0.75)",
 	},
 	ourple: {
 		1: "#d6a0ff",
@@ -41,6 +41,16 @@ var colors = {
 		locked: "#c77dff",
 		background: "#44116b",
 		background_tooltip: "rgba(68, 17, 107, 0.75)",
+	},
+	greed: {
+		1: "hsl(131, 100%, 81%)",
+		2: "hsl(131, 100%, 77%)",
+		3: "hsl(131, 100%, 75%)",
+		color: "hsl(131, 100%, 81%)",
+		points: "hsl(131, 100%, 77%)",
+		locked: "hsl(131, 100%, 75%)",
+		background: "hsl(131, 53%, 20%)",
+		background_tooltip: "hsla(131, 53%, 20%, 0.75)",
 	},
 }
 function changeTheme() {
