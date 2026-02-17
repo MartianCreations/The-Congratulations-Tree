@@ -264,7 +264,7 @@ addLayer("moon", {
         "blank",
         ["display-text", function () {
             if (hasUpgrade("moon", 16)) {
-                return "<h3>[ Other Upgrades ]</h3>"
+                return "<h3>[ More Upgrades ]</h3>"
             }
             return ""
         }],

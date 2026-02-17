@@ -165,7 +165,7 @@ addLayer("cud", {
 
         "blank",
         ["display-text", function () {
-            return "<h3>[ Other Upgrades ]</h3>"
+            return "<h3>[ More Upgrades ]</h3>"
         }],
         "blank",
         ["row", [["upgrade", 11], ["upgrade", 12], ["upgrade", 13], ["upgrade", 14],]],
