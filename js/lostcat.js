@@ -86,7 +86,7 @@ addLayer("lostcat", {
                 cooldown = new Decimal(4000)
 
                 if (hasUpgrade("lostcat", 13)) {
-                    mult = mult.times(0.9)
+                    cooldown = cooldown.times(0.9)
                 }
 
                 rng = new Decimal(Math.random()).times(10).round()
