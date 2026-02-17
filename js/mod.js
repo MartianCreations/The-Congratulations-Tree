@@ -77,6 +77,9 @@ function getPointGen() {
 	if (hasUpgrade("moon", 14)) {
 		gain = gain.times(13)
 	}
+	if (hasUpgrade("liz", 14)) {
+		gain = gain.exp(0.8)
+	}
 	if (hasUpgrade("main", 15)) {
 		gain = gain.times(upgradeEffect("main", 15))
 	}
