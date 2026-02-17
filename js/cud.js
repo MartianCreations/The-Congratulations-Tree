@@ -149,6 +149,16 @@ addLayer("cud", {
                 "corner-shape": "squircle"
             },
         },
+        17: {
+            title: "I AM THE ONE WHO GOONS!!!",
+            description: "^1.7 and 0.017x Amoebas",
+            cost: new Decimal(17171.7),
+            style: {
+                "height": "150px",
+                "width": "150px",
+                "corner-shape": "squircle"
+            },
+        },
     },
 
 
