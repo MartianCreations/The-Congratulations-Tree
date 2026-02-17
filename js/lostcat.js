@@ -127,6 +127,7 @@ addLayer("lostcat", {
             description: "1.50x Cash",
             cost: new Decimal(5),
             fishcost: new Decimal(5),
+            fishpersisting: true,
 
             fullDisplay() {
                 return "<h3>" + this.title + "</h3><br>" + this.description + "<br><br>Cost: $" + this.cost + ", " + this.fishcost + " Fish"
@@ -150,6 +151,7 @@ addLayer("lostcat", {
             description: "1.25x Fish",
             cost: new Decimal(20),
             fishcost: new Decimal(10),
+            fishpersisting: true,
 
             fullDisplay() {
                 return "<h3>" + this.title + "</h3><br>" + this.description + "<br><br>Cost: $" + this.cost + ", " + this.fishcost + " Fish"
@@ -173,6 +175,7 @@ addLayer("lostcat", {
             description: "0.9x Cooldown",
             cost: new Decimal(20),
             fishcost: new Decimal(15),
+            fishpersisting: true,
 
             fullDisplay() {
                 return "<h3>" + this.title + "</h3><br>" + this.description + "<br><br>Cost: $" + this.cost + ", " + this.fishcost + " Fish"
@@ -196,6 +199,7 @@ addLayer("lostcat", {
             description: "3.00x Amoebas, Planets, and Cash",
             cost: new Decimal(50),
             fishcost: new Decimal(1),
+            fishpersisting: true,
 
             fullDisplay() {
                 return "<h3>" + this.title + "</h3><br>" + this.description + "<br><br>Cost: $" + this.cost + ", " + this.fishcost + " Fish"

@@ -157,6 +157,8 @@ function layerDataReset(layer, keep = []) {
 		if (hasUpgrade(layer, id)) {
 			if (layers[layer].upgrades[id].persisting == true) {
 				newUpgrades.push(id)
+			} else if (layers[layer].upgrades[id].fishpersisting == true) {
+				newUpgrades.push(id)
 			}
 		}
 	}
@@ -164,6 +166,8 @@ function layerDataReset(layer, keep = []) {
 		if (hasUpgrade(layer, id)) {
 			if (layers[layer].milestones[id].persisting == true) {
 				newMilestones.push(id)
+			} else if (layers[layer].milestones[id].fishpersisting == true) {
+				newUpgrades.push(id)
 			}
 		}
 	}
@@ -171,6 +175,8 @@ function layerDataReset(layer, keep = []) {
 		if (hasUpgrade(layer, id)) {
 			if (layers[layer].achievements[id].persisting == true) {
 				newAchievements.push(id)
+			} else if (layers[layer].achievements[id].fishpersisting == true) {
+				newUpgrades.push(id)
 			}
 		}
 	}
