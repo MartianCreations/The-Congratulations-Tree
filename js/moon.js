@@ -293,8 +293,10 @@ const drsex = {
     onClick() {
         if (hasUpgrade("liz", 17)) {
             player[this.layer].points = player[this.layer].points.times(1.25)
+            player.points = player.points.times(1.25)
         } else {
             player[this.layer].points = player[this.layer].points.times(1.01)
+            player.points = player.points.times(1.01)
         }
         clearParticles(true)
     },
